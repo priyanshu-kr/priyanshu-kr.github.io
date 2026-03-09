@@ -1,4 +1,4 @@
-# priyanshu-kr.github.io
+# 🌐 Priyanshu Kumar - Personal Portfolio Website
 
 This repository contains the source code for my personal portfolio website [GitHub pages](https://pages.github.com/).
 
@@ -7,4 +7,28 @@ https://priyanshu-kr.github.io
 
 ![logo](/images/logo1.png)
 
-Built using HTML, CSS, SCSS and Javascript.
+---
+
+# 👨‍💻 About the Website
+
+The website acts as my **digital portfolio**, where I present my:
+
+- Academic background  
+- Technical skills  
+- Artificial Intelligence & Machine Learning projects  
+- Learning journey in data science and advanced computing  
+- Professional contact information  
+
+It serves as a central place for recruiters, collaborators, and researchers to explore my work.
+
+---
+
+
+# 🛠 Tech Stack
+
+The website is built using:
+
+- **HTML5**
+- **CSS3**
+- **JavaScript**
+- **GitHub Pages** for hosting and deployment
