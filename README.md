@@ -23,6 +23,15 @@ It serves as a central place for recruiters, collaborators, and researchers to e
 
 ---
 
+# 🚀 Website Features
+
+✔ Personal introduction and academic background  
+✔ Skills and technologies overview  
+✔ Portfolio of projects and experiments  
+✔ Exploration and event participation section  
+✔ Contact section for professional communication  
+
+---
 
 # 🛠 Tech Stack
 
