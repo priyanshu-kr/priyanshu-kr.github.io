@@ -41,3 +41,6 @@ The website is built using:
 - **CSS3**
 - **JavaScript**
 - **GitHub Pages** for hosting and deployment
+
+This project is open for learning and inspiration.  
+You may explore and reuse the code with proper attribution.
