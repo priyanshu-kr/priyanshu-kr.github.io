@@ -46,7 +46,28 @@
 	<body>
 		
 	<div class="fh5co-loader"></div>
-	
+
+	<nav class="site-nav" id="site-nav">
+		<div class="container">
+			<div class="site-nav-brand"><a href="#page">Priyanshu Kumar</a></div>
+			<div class="site-nav-toggle" id="site-nav-toggle">
+				<span></span><span></span><span></span>
+			</div>
+			<ul class="site-nav-menu" id="site-nav-menu">
+				<li class="menu-close"><span id="nav-close"><i class="icon-cross"></i></span></li>
+				<li class="active"><a href="#page">Home</a></li>
+				<li><a href="#fh5co-about">About</a></li>
+				<li><a href="#fh5co-resume">Education</a></li>
+				<li><a href="#fh5co-skills">Skills</a></li>
+				<li><a href="#fh5co-work">Work</a></li>
+				<li><a href="#fh5co-blog">Exploration</a></li>
+				<li><a href="#fh5co-consult">Contact</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="site-nav-backdrop" id="site-nav-backdrop"></div>
+
 	<div id="page">	
 	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image:url(images/bg_office2.jpg);" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
@@ -643,7 +664,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<p>&copy;2020 PRIYANSHU. All Rights Reserved. <br>Designed by <a><i>Priyanshu Kumar</i></a></p>
+					<p>&copy;<span id="copyright-year"></span> PRIYANSHU. All Rights Reserved. <br>Designed by <a><i>Priyanshu Kumar</i></a></p>
 				</div>
 			</div>
 		</div>
@@ -672,6 +693,69 @@
 	-->
 	<!-- Main -->
 	<script src="js/main.js"></script>
+
+	<script>
+		document.getElementById("copyright-year").textContent = new Date().getFullYear();
+	</script>
+
+	<script>
+		const nav = document.getElementById("site-nav");
+		const toggle = document.getElementById("site-nav-toggle");
+		const menu = document.getElementById("site-nav-menu");
+		const backdrop = document.getElementById("site-nav-backdrop");
+		const navClose = document.getElementById("nav-close");
+
+		const openMenu = () => {
+			toggle.classList.add("open");
+			menu.classList.add("open");
+			backdrop.classList.add("open");
+		};
+		const closeMenu = () => {
+			toggle.classList.remove("open");
+			menu.classList.remove("open");
+			backdrop.classList.remove("open");
+		};
+
+		window.addEventListener("scroll", () => {
+			nav.classList.toggle("scrolled", window.scrollY > 40);
+			highlightActive();
+		});
+
+		toggle.addEventListener("click", () => {
+			if (menu.classList.contains("open")) {
+				closeMenu();
+			} else {
+				openMenu();
+			}
+		});
+		navClose.addEventListener("click", closeMenu);
+		backdrop.addEventListener("click", closeMenu);
+
+		const links = menu.querySelectorAll("a");
+		links.forEach((link) => {
+			link.addEventListener("click", () => {
+				closeMenu();
+			});
+		});
+
+		const sections = document.querySelectorAll("[id]");
+		function highlightActive() {
+			const pos = window.scrollY + 100;
+			let current = "page";
+			sections.forEach((s) => {
+				if (s.offsetTop <= pos) {
+					current = s.id;
+				}
+			});
+			links.forEach((link) => {
+				link.parentElement.classList.toggle(
+					"active",
+					link.getAttribute("href") === "#" + current
+				);
+			});
+		}
+		highlightActive();
+	</script>
 
 	</body>
 </html>
