@@ -59,6 +59,7 @@
 	<nav class="site-nav" id="site-nav">
 		<div class="container">
 			<div class="site-nav-brand"><a href="#page">Priyanshu Kumar</a></div>
+			<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="icon-contrast"></i></button>
 			<div class="site-nav-toggle" id="site-nav-toggle">
 				<span></span><span></span><span></span>
 			</div>
@@ -115,14 +116,17 @@
 			</div>
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
-					<p> 
-						Welcome to my digital academic haven—a space where curiosity converges with experience. Having completed my Master’s in Advanced Computing at Maulana Azad National Institute of Technology, Bhopal, with a dissertation focused on Machine Learning, I am now eager to embark on a career in Artificial Intelligence. Here, I share the insights, projects, and discoveries that have shaped my journey, from foundational studies and technical triumphs to creative problem-solving in the rapidly evolving AI landscape. What began as a simple dream with a laptop and a passion has grown into a dedicated interest in Data Science and a commitment to inspiring others who share this excitement for technology. Through this platform, I hope to document my growth and foster a vibrant community of learning, collaboration, and innovation—contributing to the future of AI.
-					<p>
-						Being an optimistic person, I believe <em><blockquote> "A QUICK JUMP OUT OF THE BOX IS MORE INSIGHTFUL THAN A LIFETIME OF STANDARD THINKING."</blockquote></em>
+					<p class="about-lead">
+						Welcome to my digital academic haven—a space where curiosity converges with experience. Having completed my Master’s in Advanced Computing at Maulana Azad National Institute of Technology, Bhopal, with a dissertation focused on Machine Learning, I am now eager to embark on a career in Artificial Intelligence.
 					</p>
-				</p>
+					<p>
+						Here, I share the insights, projects, and discoveries that have shaped my journey—from foundational studies and technical triumphs to creative problem-solving in the rapidly evolving AI landscape. What began as a simple dream with a laptop and a passion has grown into a dedicated interest in Data Science and a commitment to inspiring others who share this excitement for technology. Through this platform, I hope to document my growth and foster a vibrant community of learning, collaboration, and innovation—contributing to the future of AI.
+					</p>
+					<blockquote class="about-quote">
+						<p>Being an optimistic person, I believe: "A QUICK JUMP OUT OF THE BOX IS MORE INSIGHTFUL THAN A LIFETIME OF STANDARD THINKING."</p>
+					</blockquote>
 				</div>
-        </div>
+			</div>
 		</div>
 	</div>
 
@@ -424,17 +428,17 @@
 						</div>
 					</a>
 				</div>
-				
+
 				<div class="col-md-6 text-center col-padding animate-box">
-<a href="#" class="work" style="background: linear-gradient(135deg, #1c6ea4, #2980b9);">
-					<div class="desc">
-						<h3>Flan-T5 Dialogue Summarization</h3>
+					<a href="#" class="work" style="background: linear-gradient(135deg, #1c6ea4, #2980b9);">
+						<div class="desc">
+							<h3>Flan-T5 Dialogue Summarization</h3>
 							<span>Flan-T5, HuggingFace, LoRA, PEFT</span>
 							<p>Performed prompt engineering on Flan-T5 with the dialogsum dataset using instructional and Chain-of-Thought prompts. Experimented with zero-shot and few-shot in-context learning, and optimized the model with PEFT, LoRA, and 4-bit quantization.</p>
 						</div>
 					</a>
 				</div>
-				
+
 				<div class="col-md-6 text-center col-padding animate-box">
 					<a href="https://jovian.ai/priyanshu-kr/flower-classification-project" target="_blank" class="work" style="background-image: url(images/sf.png);">
 						<div class="desc">
@@ -444,11 +448,11 @@
 						</div>
 					</a>
 				</div>
-				
+
 				<div class="col-md-6 text-center col-padding animate-box">
-<a href="#" class="work" style="background: linear-gradient(135deg, #3498db, #2980b9);">
-					<div class="desc">
-						<h3>Home Monitoring &amp; Security System</h3>
+					<a href="#" class="work" style="background: linear-gradient(135deg, #3498db, #2980b9);">
+						<div class="desc">
+							<h3>Home Monitoring &amp; Security System</h3>
 							<span>IoT, Sensors, Python</span>
 							<p>Implemented an IoT-based system integrating various devices and sensors to monitor the home environment, with real-time monitoring through a user-friendly mobile app or web interface.</p>
 						</div>
@@ -785,6 +789,26 @@
 			setTimeout(typeLoop, deleting ? 40 : 90);
 		}
 		typeLoop();
+	</script>
+
+	<script>
+		const themeToggle = document.getElementById("theme-toggle");
+		const themeIcon = themeToggle.querySelector("i");
+		function applyTheme(dark) {
+			document.documentElement.classList.toggle("dark", dark);
+			themeIcon.className = dark ? "icon-sun" : "icon-moon";
+			try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch (e) {}
+		}
+		let savedTheme = null;
+		try { savedTheme = localStorage.getItem("theme"); } catch (e) {}
+		if (savedTheme === "dark") {
+			applyTheme(true);
+		} else {
+			applyTheme(false);
+		}
+		themeToggle.addEventListener("click", () => {
+			applyTheme(!document.documentElement.classList.contains("dark"));
+		});
 	</script>
 
 	<script>

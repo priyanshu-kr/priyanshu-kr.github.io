@@ -392,6 +392,27 @@ h1, h2, h3, h4, h5, h6, figure {
   color: #000;
 }
 
+#fh5co-about .about-lead {
+  font-size: 17px;
+  color: #2F3C4F;
+  font-weight: 500;
+  line-height: 1.9;
+}
+#fh5co-about .about-quote {
+  position: relative;
+  margin: 30px 0 0;
+  padding: 22px 30px;
+  background: #eef2f7;
+  border-left: 4px solid #2980b9;
+  border-radius: 0 12px 12px 0;
+}
+#fh5co-about .about-quote p {
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  color: #2F3C4F;
+}
+
 /***************** MY RESUME ***********************/
 
 .fh5co-heading {
@@ -1186,14 +1207,28 @@ input[type="text"] {
 }
 
 .btn-primary {
-  background: rgba(0, 0, 0, 0.843);
+  background: #2980b9;
   color: #fff;
-  border: 2px solid rgba(0, 0, 0, 0.843);
+  border: 2px solid #2980b9;
+  border-radius: 30px;
+  padding: 10px 22px;
+  font-weight: 500;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background: rgba(41, 128, 185, 0.843) !important;
-  border-color: rgba(0, 0, 0, 0.843) !important;
-  color: rgb(0, 0, 0) !important;
+  background: #1c6ea4 !important;
+  border-color: #1c6ea4 !important;
+  color: #fff !important;
+  -webkit-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  transform: translateY(-2px);
+  -webkit-box-shadow: 0 8px 16px rgba(41, 128, 185, 0.3);
+  -moz-box-shadow: 0 8px 16px rgba(41, 128, 185, 0.3);
+  box-shadow: 0 8px 16px rgba(41, 128, 185, 0.3);
 }
 .btn-primary.btn-outline {
   background: transparent;
@@ -2033,6 +2068,175 @@ html {
 }
 #fh5co-footer .footer-social a:hover {
   color: #2980b9;
+}
+
+/* ============ DARK MODE ============ */
+:root {
+  --bg-body: #ffffff;
+  --bg-card: #ffffff;
+  --bg-soft: #eef2f7;
+  --text-main: #4d4d4d;
+  --text-heading: #2F3C4F;
+  --text-muted: #828282;
+  --border-soft: rgba(47, 60, 79, 0.12);
+}
+
+/* Dark theme applied via .dark class on <html> (toggled by button) */
+html.dark {
+  --bg-body: #121a24;
+  --bg-card: #1b2632;
+  --bg-soft: #16202b;
+  --text-main: #b8c4d0;
+  --text-heading: #e8eef4;
+  --text-muted: #8b9aab;
+  --border-soft: rgba(255, 255, 255, 0.1);
+}
+
+html.dark body {
+  background: var(--bg-body);
+  color: var(--text-main);
+}
+
+/* sections + soft backgrounds */
+html.dark #fh5co-about,
+html.dark #fh5co-resume,
+html.dark #fh5co-skills,
+html.dark #fh5co-blog,
+html.dark #fh5co-contact,
+html.dark #fh5co-papers,
+html.dark #fh5co-experience {
+  background: var(--bg-body);
+}
+html.dark .fh5co-bg-soft {
+  background: var(--bg-soft);
+}
+
+/* headings */
+html.dark .fh5co-heading h2 {
+  color: var(--text-heading);
+}
+html.dark .fh5co-heading p {
+  color: var(--text-muted);
+}
+
+/* cards */
+html.dark .resume-card,
+html.dark .edu-card,
+html.dark .paper-card,
+html.dark .fh5co-blog .blog-text {
+  background: var(--bg-card);
+}
+html.dark .resume-body h3,
+html.dark .edu-card h3,
+html.dark .paper-body h3 {
+  color: var(--text-heading);
+}
+html.dark .resume-list li,
+html.dark .paper-body p {
+  color: var(--text-main);
+}
+html.dark .resume-company {
+  color: var(--text-muted);
+}
+html.dark .resume-list li::before {
+  background: #2980b9;
+}
+
+/* about */
+html.dark #fh5co-about .about-lead {
+  color: var(--text-heading);
+}
+html.dark #fh5co-about .about-quote {
+  background: var(--bg-soft);
+}
+html.dark #fh5co-about .about-quote p {
+  color: var(--text-heading);
+}
+
+/* edu timeline dot */
+html.dark .edu-dot {
+  background: linear-gradient(135deg, #2980b9, #1c6ea4);
+}
+
+/* skill tags */
+html.dark .skill-tag {
+  color: var(--text-heading);
+  background: var(--bg-card);
+  border-color: var(--border-soft);
+  -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+html.dark .skill-category-title {
+  color: var(--text-heading);
+}
+
+/* events */
+html.dark .fh5co-blog .blog-text h3 a {
+  color: var(--text-heading);
+}
+html.dark .fh5co-blog .blog-text span {
+  color: var(--text-muted);
+}
+html.dark .fh5co-blog .blog-text .stuff {
+  border-top-color: var(--border-soft);
+}
+
+/* contact form */
+html.dark .form-control {
+  background: var(--bg-card);
+  border-color: var(--border-soft);
+  color: var(--text-main);
+}
+html.dark #fh5co-consult .choose {
+  background: var(--bg-body);
+}
+
+/* dark mode toggle button */
+.theme-toggle {
+  position: fixed;
+  right: 22px;
+  top: 22px;
+  z-index: 1100;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  background: #2980b9;
+  font-size: 22px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-shadow: 0 6px 16px rgba(41, 128, 185, 0.4);
+  -moz-box-shadow: 0 6px 16px rgba(41, 128, 185, 0.4);
+  box-shadow: 0 6px 16px rgba(41, 128, 185, 0.4);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.theme-toggle:hover {
+  -webkit-transform: translateY(-3px);
+  -ms-transform: translateY(-3px);
+  transform: translateY(-3px);
+  -webkit-box-shadow: 0 10px 22px rgba(41, 128, 185, 0.5);
+  -moz-box-shadow: 0 10px 22px rgba(41, 128, 185, 0.5);
+  box-shadow: 0 10px 22px rgba(41, 128, 185, 0.5);
+}
+html.dark .theme-toggle {
+  background: #3498db;
 }
 
 /*# sourceMappingURL=style.css.map */
