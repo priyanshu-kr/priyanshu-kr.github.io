@@ -344,6 +344,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 #fh5co-about,
 #fh5co-resume,
+#fh5co-experience,
 #fh5co-skills,
 #fh5co-papers,
 #fh5co-started,
@@ -496,79 +497,25 @@ h1, h2, h3, h4, h5, h6, figure {
 // TIMELINE
 .timeline {
     list-style: none;
-    padding: 20px 0 20px;
+    padding: 30px 20px 30px;
     position: relative;
-    &:before {
-		top: 20px;
-		bottom: 0;
-		position: absolute;
-		content: " ";
-		width: 2px;
-		background-color: lighten($brand-black,90%);
-		left: 50%;
-		margin-left: 0px;
-		@media screen and (max-width: $screen-sm) {
-			margin-left: -64px;
-		}
-		@media screen and (max-width: $screen-xs) {
-			margin-left: -64px;
-		}
-	}
-	.timeline-heading{
-		@media screen and (max-width: $screen-sm) {
-			margin-bottom: 30px;
-		}
-		>div{
-			h3{
-				display: inline-block;
-				padding: 7px 15px;
-				font-size: 18px;
-				text-transform: uppercase;
-				letter-spacing: 5px;
-				font-weight: bold;
-				background: lighten($brand-black,90%);
-				@include border-radius(4px);
-				@media screen and (max-width: $screen-sm) {
-					float: left;
-					margin-bottom: 0;
-				}
-			}
-		}
-	}
+    background: #e7e7e7c6;
+    border-radius: 20px;
 	> li{
-		margin-bottom: 20px;
+		margin-bottom: 0;
+		padding-bottom: 20px;
 		position: relative;
-		@media screen and (max-width: $screen-sm) {
-			margin-bottom: 4em;	
-		}
-		&:before, &:after{
-			content: " ";
-			display: table;
-		}
-		&:after{
-			clear: both;
-		}
+		display: flow-root;
+
 		> .timeline-panel {
 			width: 45%;
 			float: left;
 			margin-bottom: 0;
 			position: relative;
 			@include border-radius(4px);
-			@media screen and (max-width: $screen-sm) {
-				width: 85% !important;
-			}
-			@media screen and (max-width: $screen-xs) {
-				width: 75% !important;
-				&:before{
-					top: 30px;
-				}
-				&:after{
-					top: 31px;
-				}
-			}
 		}
 		> .timeline-badge {
-			color: #fff;
+			color: rgb(0, 0, 0);
 			width: 44px;
 			height: 44px;
 			line-height: 50px;
@@ -578,16 +525,11 @@ h1, h2, h3, h4, h5, h6, figure {
 			top: 40px;
 			left: 50%;
 			margin-left: -21px;
-			background-color: $brand-primary;
+			background-color: rgb(245, 161, 4);
 			z-index: 100;
 			display: table;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 			@include border-radius(50%);
-			@media screen and (max-width: $screen-sm) {
-				margin-left: -10px !important;
-			}
-			@media screen and (max-width: $screen-md) {
-				margin-left: -10px !important;
-			}
 			i{
 				display: table-cell;
 				vertical-align: middle;
@@ -597,9 +539,6 @@ h1, h2, h3, h4, h5, h6, figure {
 		}
 		&.timeline-unverted{
 			text-align: right;
-			@media screen and (max-width: $screen-sm) {
-				text-align: left;
-			}
 		}
 		&.timeline-inverted {
 			> .timeline-panel {
@@ -618,6 +557,17 @@ h1, h2, h3, h4, h5, h6, figure {
 				}
 			}
 		}
+		&:not(:last-child)::after {
+			content: "";
+			position: absolute;
+			left: 50%;
+			width: 2px;
+			margin-left: -1px;
+			top: 62px;
+			bottom: -62px;
+			background-color: rgba(245, 161, 4, 0.6);
+			z-index: 1;
+		}
 	}
 }
 
@@ -632,6 +582,16 @@ h1, h2, h3, h4, h5, h6, figure {
 	color: lighten($brand-black, 75%);
 }
 
+.degree{
+	display: block;
+	font-size: 14px;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #2980b9;
+	margin-bottom: 8px;
+}
+
 .timeline-body > p,
 .timeline-body > ul {
     margin-bottom: 0;
@@ -642,24 +602,16 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 @media (max-width: $screen-md) {
-	ul.timeline:before {
-	  left: 90px;
+	ul.timeline {
+	  padding: 30px 20px 30px;
+	}
+
+	ul.timeline > li {
+	  padding-left: 60px;
 	}
 
 	ul.timeline > li > .timeline-panel {
-	  width: calc(100% - 200px);
-	  width: -moz-calc(100% - 200px);
-	  width: -webkit-calc(100% - 200px);
-	  // width: 40%;
-	}
-
-	ul.timeline > li > .timeline-badge {
-	  left: 15px;
-	  margin-left: 0;
-	  top: 16px;
-	}
-
-	ul.timeline > li > .timeline-panel {
+	  width: 100%;
 	  float: right;
 	}
 
@@ -675,6 +627,54 @@ h1, h2, h3, h4, h5, h6, figure {
 	   border-right-width: 14px;
 	   left: -14px;
 	   right: auto;
+	}
+
+	ul.timeline > li > .timeline-badge {
+	  left: 0;
+	  margin-left: 0;
+	  top: 16px;
+	}
+
+	ul.timeline > li:not(:last-child)::after {
+	  left: 22px;
+	  margin-left: -1px;
+	  top: 38px;
+	  bottom: -38px;
+	}
+
+	ul.timeline > li.timeline-unverted {
+	  text-align: left;
+	}
+}
+
+// Single-item timeline (used in Experience)
+.timeline.timeline-single {
+	> li {
+		padding-left: 70px;
+		> .timeline-panel {
+			width: 100%;
+			float: right;
+		}
+		> .timeline-badge {
+			left: 0;
+			margin-left: 0;
+			top: 16px;
+		}
+		&.timeline-unverted {
+			text-align: left;
+		}
+		> .timeline-panel:before {
+			border-left-width: 0;
+			border-right-width: 15px;
+			left: -15px;
+			right: auto;
+		}
+		> .timeline-panel:after {
+			border-left-width: 0;
+			border-right-width: 14px;
+			left: -14px;
+			right: auto;
+		}
 	}
 }
 
