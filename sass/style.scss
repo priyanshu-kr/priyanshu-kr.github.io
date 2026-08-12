@@ -1,4 +1,4 @@
-$font-primary: 'Space Mono', Arial, serif;
+$font-primary: 'Poppins', 'Space Mono', Arial, serif;
 $font-secondary: 'Kaushan Script', cursive;
 
 
@@ -345,6 +345,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-about,
 #fh5co-resume,
 #fh5co-skills,
+#fh5co-papers,
 #fh5co-started,
 #fh5co-work,
 #fh5co-blog,
@@ -462,6 +463,20 @@ h1, h2, h3, h4, h5, h6, figure {
 		margin-bottom: 20px;
 		line-height: 1.5;
 		color: $brand-black;
+		position: relative;
+		display: inline-block;
+		padding-bottom: 12px;
+		&:after{
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			@include translateX(-50%);
+			width: 70px;
+			height: 4px;
+			border-radius: 4px;
+			background: linear-gradient(to right, #2980b9, #8e44ad);
+		}
 	}
 	p {
 		font-size: 18px;
@@ -805,6 +820,8 @@ h1, h2, h3, h4, h5, h6, figure {
 	position: relative;
 	float: left;
 	width: 100%;
+	background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+	background-size: 22px 22px;
 	.fh5co-heading {
 		margin-bottom: 0;
 		h2 {
@@ -867,7 +884,7 @@ h1, h2, h3, h4, h5, h6, figure {
 		-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.06);
 		box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.06);
 
-		@include transition(.3s);
+		@include transition(.35s);
 
 		@media screen and(max-width: $screen-sm){
 			padding: 10px;
